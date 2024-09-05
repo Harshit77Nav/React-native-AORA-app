@@ -27,8 +27,10 @@ const RootLayout = () => {
 
   return (
     <Stack>
-        <Stack.Screen name="index" options={{headerShown:true, title:"Home"}}/>
-        <Stack.Screen name="profile" options={{headerShown:true, title: "Profile"}}/>
+        <Stack.Screen name="index" options={{headerShown:false, title:"Home"}}/>
+        <Stack.Screen name="(auth)" options={{headerShown:false}}/>
+        <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
+        {/* <Stack.Screen name="/search/[query]" options={{headerShown:false}}/> */}
     </Stack>
   )
 }
