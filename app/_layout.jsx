@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Slot , SplashScreen, Stack } from 'expo-router'
 import { useFonts } from 'expo-font'
 import { useEffect, React } from 'react'
+import { GlobalProvider } from '../context/GlobalProvider'
 
 const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
@@ -26,12 +27,14 @@ const RootLayout = () => {
   if(!fontsLoaded) return null;
 
   return (
-    <Stack>
-        <Stack.Screen name="index" options={{headerShown:false, title:"Home"}}/>
-        <Stack.Screen name="(auth)" options={{headerShown:false}}/>
-        <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
-        {/* <Stack.Screen name="/search/[query]" options={{headerShown:false}}/> */}
-    </Stack>
+    <GlobalProvider>
+      <Stack>
+          <Stack.Screen name="index" options={{headerShown:false, title:"Home"}}/>
+          <Stack.Screen name="(auth)" options={{headerShown:false}}/>
+          <Stack.Screen name="(tabs)" options={{headerShown:false}}/>
+          {/* <Stack.Screen name="/search/[query]" options={{headerShown:false}}/> */}
+      </Stack>
+    </GlobalProvider>
   )
 }
 
